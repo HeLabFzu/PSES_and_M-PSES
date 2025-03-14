@@ -15,7 +15,7 @@
 	+ `parallel_swapping_simulation_performance_test.py`    avg ES time vs. hops; avg ES time vs. std of node costs
 	+ `PSES_fail_node_on_demand_retransmission_test.py`     on-demand retransmission mechanism test
 	+ `M_PSES_test_different_number_of_common_nodes.py`       effectiveness of M-PSES vs. number of common nodes
-	+ `M_PSES_test_different_number_of_paths.py`          Effectiveness of M-PSES vs. number of paths
+	+ `M_PSES_test_different_number_of_paths.py`          effectiveness of M-PSES vs. number of paths
 - `protocol`     dependency files; protocols for hierarchical quantum network
 - `topology`     dependency files; topologies for hierarchical quantum network
 - `util`         dependency files; utilities functions for hierarchical quantum network
