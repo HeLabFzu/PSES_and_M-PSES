@@ -52,5 +52,5 @@ if __name__=="__main__":
         print("pses_segment time cost is {} ms" .format(pses_segment_algorithm_time_cost[i]))
         print("imbalanced_segment time cost is {} ms" .format(imbalanced_segment_algorithm_time_cost[i]))
         print("balanced_binary_tree time cost is {} ms" .format(balanced_algorithm_time_cost[i]))
-        print("-------------------------------------")
+        print("--------------------------------------")
         

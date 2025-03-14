@@ -42,4 +42,4 @@ if __name__=="__main__":
         print("pses_segment saving cost is: {}" .format(pses_segment_total_saving_cost/100))
         print("imbalanced_segment saving cost is: {}" .format(imbalanced_segment_total_saving_cost/100))
         print("balanced_binary_tree saving cost is: {}" .format(balanced_total_saving_cost/100))
-        print("-------------------------------------")
+        print("--------------------------------------")
