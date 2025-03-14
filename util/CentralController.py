@@ -86,6 +86,42 @@ class CentralController():
             pool.close()
             pool.join()
 
+    def MPSES_parallel_swapping(self, solution_set,entangle_distribution_protocols_set,entangle_swapping_protocols_set,network_set,isBalanced,common_node_list):
+        args_set = []
+        common_node_args = []
+        for i in range(0,len(solution_set[0])):
+            args = []
+            for k in range(0, len(solution_set)):
+                for j in range(0,len(solution_set[0][i])):
+                    if k!=0 and bool(set(solution_set[0][i][j][1:-1])&set(common_node_list)):
+                        print(solution_set[0][i][j][1:-1])
+                        arg = []
+                        arg.append(entangle_distribution_protocols_set[k][i][j])
+                        arg.append(entangle_swapping_protocols_set[k][i][j])
+                        arg.append(solution_set[k][i][j])
+                        arg.append(network_set[k])
+                        arg.append(isBalanced)
+                        common_node_args.append(arg)
+                        continue
+                    
+                    arg = []
+                    arg.append(entangle_distribution_protocols_set[k][i][j])
+                    arg.append(entangle_swapping_protocols_set[k][i][j])
+                    arg.append(solution_set[k][i][j])
+                    arg.append(network_set[k])
+                    arg.append(isBalanced)
+                    args.append(arg)
+            
+            args_set.append(args)
+            if len(common_node_args) != 0:
+                args_set.append(common_node_args)
+                common_node_args = []
+        for i in range(0,len(args_set)):
+            pool = ThreadPool()
+            pool.map(self.distributing_and_swapping_operator, args_set[i])
+            pool.close()
+            pool.join()
+
     def get_number_of_entangled_pairs(self):
         return self.number_of_entangled_pairs
 
