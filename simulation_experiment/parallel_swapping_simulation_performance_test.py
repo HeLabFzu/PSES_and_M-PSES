@@ -254,4 +254,42 @@ if __name__ == '__main__':
 #    print("balanced time is: {}" .format(balanced_time))
 ############################################################################
 
+########################## M-PSES layer solution test ###########################
+#    pses_layer_final_solution, pses_layer_final_solution_costs_saving = pses_layer_greedy(path,cost,final_solution=[],final_solution_costs_saving=0)
+#    entangle_distribution_protocols, entangle_swapping_protocols = define_protocol(pses_layer_final_solution,real_path)
+#    common_node_list=[]
+#    solution_set = []
+#    entangle_distribution_protocols_set = []
+#    entangle_swapping_protocols_set = []
+#    network_set = []
+#    solution_set.append(pses_layer_final_solution)
+#    entangle_distribution_protocols_set.append(entangle_distribution_protocols)
+#    entangle_swapping_protocols_set.append(entangle_swapping_protocols)
+#    network_set.append(network)
+#    time_start = time.perf_counter()
+#    ### call central_controller to exec solution (MPSES) ###
+#    central_controller.MPSES_parallel_swapping(solution_set, entangle_distribution_protocols_set, entangle_swapping_protocols_set, network_set, False, common_node_list)
+#    time_stop = time.perf_counter()
+#    mpses_layer_time = time_stop-time_start
+#    print("m-pses layer time is: {}" .format(mpses_layer_time))
+##############################################################################
 
+########################### M-PSES segment solution test #######################
+#    pses_segment_final_solution, pses_segment_final_solution_costs_saving = pses_segment_greedy(path,cost)
+#    entangle_distribution_protocols, entangle_swapping_protocols = define_protocol(pses_segment_final_solution,real_path)
+#    common_node_list=[]
+#    solution_set = []
+#    entangle_distribution_protocols_set = []
+#    entangle_swapping_protocols_set = []
+#    network_set = []
+#    solution_set.append(pses_segment_final_solution)
+#    entangle_distribution_protocols_set.append(entangle_distribution_protocols)
+#    entangle_swapping_protocols_set.append(entangle_swapping_protocols)
+#    network_set.append(network)
+#    time_start = time.perf_counter()
+#    ### call central_controller to exec solution (MPSES)  ###
+#    central_controller.MPSES_parallel_swapping(solution_set, entangle_distribution_protocols_set, entangle_swapping_protocols_set, network_set, False, common_node_list)
+#    time_stop = time.perf_counter()
+#    mpses_segment_time = time_stop-time_start
+#    print("m-pses segment time is: {}" .format(mpses_segment_time))
+############################################################################

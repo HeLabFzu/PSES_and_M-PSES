@@ -113,7 +113,8 @@ if __name__ == '__main__':
     dephase_rates = [0,0.09,0.06,0.31,0.1,0]
     qchannel_loss_init = [0,0.01,0.01,0.02,0.006,0.2,0.01,0.012,0.04,0]
     qchannel_loss_noisy = [0,0.001,0.001,0.002,0.0006,0.02,0.001,0.012,0.004,0]   
-
+#### 1 common node ######
+    common_node_list = ['x3']
 ###########################################################################################################################################################
    
 ###################################################### initialization ######################################################
@@ -162,6 +163,85 @@ if __name__ == '__main__':
     cost_6 = central_controller.nodes_cost_caculator(depolar_rates,dephase_rates,qchannel_loss_init,qchannel_loss_noisy)
 
 
+##############################################################################################################################
+
+########################## pses test (2~6 paths) ###########################
+#    pses_layer_final_solution_1, pses_layer_final_solution_costs_saving_1 = pses_layer_greedy(path_1,cost_1,final_solution=[],final_solution_costs_saving=0)
+#    pses_layer_final_solution_2, pses_layer_final_solution_costs_saving_2 = pses_layer_greedy(path_2,cost_2,final_solution=[],final_solution_costs_saving=0)
+#    pses_layer_final_solution_3, pses_layer_final_solution_costs_saving_3 = pses_layer_greedy(path_3,cost_3,final_solution=[],final_solution_costs_saving=0)
+#    pses_layer_final_solution_4, pses_layer_final_solution_costs_saving_4 = pses_layer_greedy(path_4,cost_4,final_solution=[],final_solution_costs_saving=0)
+#    pses_layer_final_solution_5, pses_layer_final_solution_costs_saving_5 = pses_layer_greedy(path_5,cost_5,final_solution=[],final_solution_costs_saving=0)
+#    pses_layer_final_solution_6, pses_layer_final_solution_costs_saving_6 = pses_layer_greedy(path_6,cost_6,final_solution=[],final_solution_costs_saving=0)
+#    entangle_distribution_protocols_1, entangle_swapping_protocols_1 = define_protocol(pses_layer_final_solution_1,real_path_1)
+#    entangle_distribution_protocols_2, entangle_swapping_protocols_2 = define_protocol(pses_layer_final_solution_2,real_path_2)
+#    entangle_distribution_protocols_3, entangle_swapping_protocols_3 = define_protocol(pses_layer_final_solution_3,real_path_3)
+#    entangle_distribution_protocols_4, entangle_swapping_protocols_4 = define_protocol(pses_layer_final_solution_4,real_path_4)
+#    entangle_distribution_protocols_5, entangle_swapping_protocols_5 = define_protocol(pses_layer_final_solution_5,real_path_5)
+#    entangle_distribution_protocols_6, entangle_swapping_protocols_6 = define_protocol(pses_layer_final_solution_6,real_path_6)
+#    time_start = time.perf_counter()
+#    central_controller.parallel_swapping(pses_layer_final_solution_1, entangle_distribution_protocols_1, entangle_swapping_protocols_1, network_1, False)
+#    central_controller.parallel_swapping(pses_layer_final_solution_2, entangle_distribution_protocols_2, entangle_swapping_protocols_2, network_2, False)
+#    central_controller.parallel_swapping(pses_layer_final_solution_3, entangle_distribution_protocols_3, entangle_swapping_protocols_3, network_3, False)
+#    central_controller.parallel_swapping(pses_layer_final_solution_4, entangle_distribution_protocols_4, entangle_swapping_protocols_4, network_4, False)
+#    central_controller.parallel_swapping(pses_layer_final_solution_5, entangle_distribution_protocols_5, entangle_swapping_protocols_5, network_5, False)
+#    central_controller.parallel_swapping(pses_layer_final_solution_6, entangle_distribution_protocols_6, entangle_swapping_protocols_6, network_6, False)
+#    time_stop = time.perf_counter()
+#    pses_time = time_stop-time_start
+#    print("pses time is: {}" .format(pses_time))
+
+########################## IBT test (2~6 paths) ###########################
+#    imbalanced_layer_final_solution_1, imbalanced_layer_final_solution_costs_saving_1 = imbalanced_layer_greedy(path_1,cost_1,final_solution=[],final_solution_costs_saving=0)
+#    imbalanced_layer_final_solution_2, imbalanced_layer_final_solution_costs_saving_2 = imbalanced_layer_greedy(path_2,cost_2,final_solution=[],final_solution_costs_saving=0)
+#    imbalanced_layer_final_solution_3, imbalanced_layer_final_solution_costs_saving_3 = imbalanced_layer_greedy(path_3,cost_3,final_solution=[],final_solution_costs_saving=0)
+#    imbalanced_layer_final_solution_4, imbalanced_layer_final_solution_costs_saving_4 = imbalanced_layer_greedy(path_4,cost_4,final_solution=[],final_solution_costs_saving=0)
+#    imbalanced_layer_final_solution_5, imbalanced_layer_final_solution_costs_saving_5 = imbalanced_layer_greedy(path_5,cost_5,final_solution=[],final_solution_costs_saving=0)
+#    imbalanced_layer_final_solution_6, imbalanced_layer_final_solution_costs_saving_6 = imbalanced_layer_greedy(path_6,cost_6,final_solution=[],final_solution_costs_saving=0)
+#    entangle_distribution_protocols_1, entangle_swapping_protocols_1 = define_protocol(imbalanced_layer_final_solution_1,real_path_1)
+#    entangle_distribution_protocols_2, entangle_swapping_protocols_2 = define_protocol(imbalanced_layer_final_solution_2,real_path_2)
+#    entangle_distribution_protocols_3, entangle_swapping_protocols_3 = define_protocol(imbalanced_layer_final_solution_3,real_path_3)
+#    entangle_distribution_protocols_4, entangle_swapping_protocols_4 = define_protocol(imbalanced_layer_final_solution_4,real_path_4)
+#    entangle_distribution_protocols_5, entangle_swapping_protocols_5 = define_protocol(imbalanced_layer_final_solution_5,real_path_5)
+#    entangle_distribution_protocols_6, entangle_swapping_protocols_6 = define_protocol(imbalanced_layer_final_solution_6,real_path_6)
+#    time_start = time.perf_counter()
+#    ### call central_controller to exec solution (parallel swapping) ###
+#    central_controller.parallel_swapping(imbalanced_layer_final_solution_1, entangle_distribution_protocols_1, entangle_swapping_protocols_1, network_1, False)
+#    central_controller.parallel_swapping(imbalanced_layer_final_solution_2, entangle_distribution_protocols_2, entangle_swapping_protocols_2, network_2, False)
+#    central_controller.parallel_swapping(imbalanced_layer_final_solution_3, entangle_distribution_protocols_3, entangle_swapping_protocols_3, network_3, False)
+#    central_controller.parallel_swapping(imbalanced_layer_final_solution_4, entangle_distribution_protocols_4, entangle_swapping_protocols_4, network_4, False)
+#    central_controller.parallel_swapping(imbalanced_layer_final_solution_5, entangle_distribution_protocols_5, entangle_swapping_protocols_5, network_5, False)
+#    central_controller.parallel_swapping(imbalanced_layer_final_solution_6, entangle_distribution_protocols_6, entangle_swapping_protocols_6, network_6, False)
+#    time_stop = time.perf_counter()
+#    im_layer_time = time_stop-time_start
+#    print("im layer time is: {}" .format(im_layer_time))
+
+
+########################## BBT test (2~6 paths) ###########################
+#    balanced_final_solution_1, balanced_final_solution_costs_saving_1 = balanced_binary_tree(path_1,cost_1)
+#    balanced_final_solution_2, balanced_final_solution_costs_saving_2 = balanced_binary_tree(path_2,cost_2)
+#    balanced_final_solution_3, balanced_final_solution_costs_saving_3 = balanced_binary_tree(path_3,cost_3)
+#    balanced_final_solution_4, balanced_final_solution_costs_saving_4 = balanced_binary_tree(path_4,cost_4)
+#    balanced_final_solution_5, balanced_final_solution_costs_saving_5 = balanced_binary_tree(path_5,cost_5)
+#    balanced_final_solution_6, balanced_final_solution_costs_saving_6 = balanced_binary_tree(path_6,cost_6)
+#
+#    entangle_distribution_protocols_1, entangle_swapping_protocols_1 = define_protocol(balanced_final_solution_1,real_path_1)
+#    entangle_distribution_protocols_2, entangle_swapping_protocols_2 = define_protocol(balanced_final_solution_2,real_path_2)
+#    entangle_distribution_protocols_3, entangle_swapping_protocols_3 = define_protocol(balanced_final_solution_3,real_path_3)
+#    entangle_distribution_protocols_4, entangle_swapping_protocols_4 = define_protocol(balanced_final_solution_4,real_path_4)
+#    entangle_distribution_protocols_5, entangle_swapping_protocols_5 = define_protocol(balanced_final_solution_5,real_path_5)
+#    entangle_distribution_protocols_6, entangle_swapping_protocols_6 = define_protocol(balanced_final_solution_6,real_path_6)
+#    time_start = time.perf_counter()
+#    ### call central_controller to exec solution (parallel swapping) ###
+#    central_controller.parallel_swapping(balanced_final_solution_1, entangle_distribution_protocols_1, entangle_swapping_protocols_1, network_1, True)
+#    central_controller.parallel_swapping(balanced_final_solution_2, entangle_distribution_protocols_2, entangle_swapping_protocols_2, network_2, True)
+#    central_controller.parallel_swapping(balanced_final_solution_3, entangle_distribution_protocols_3, entangle_swapping_protocols_3, network_3, True)
+#    central_controller.parallel_swapping(balanced_final_solution_4, entangle_distribution_protocols_4, entangle_swapping_protocols_4, network_4, True)
+#    central_controller.parallel_swapping(balanced_final_solution_5, entangle_distribution_protocols_5, entangle_swapping_protocols_5, network_5, True)
+#    central_controller.parallel_swapping(balanced_final_solution_6, entangle_distribution_protocols_6, entangle_swapping_protocols_6, network_6, True)
+#    time_stop = time.perf_counter()
+#    balanced_time = time_stop - time_start
+#    print("balanced time is: {}" .format(balanced_time))
+
+########################## M-PSES test (2~6 paths)###########################
     pses_layer_final_solution_1, pses_layer_final_solution_costs_saving_1 = pses_layer_greedy(path_1,cost_1,final_solution=[],final_solution_costs_saving=0)
     pses_layer_final_solution_2, pses_layer_final_solution_costs_saving_2 = pses_layer_greedy(path_2,cost_2,final_solution=[],final_solution_costs_saving=0)
     pses_layer_final_solution_3, pses_layer_final_solution_costs_saving_3 = pses_layer_greedy(path_3,cost_3,final_solution=[],final_solution_costs_saving=0)
@@ -174,20 +254,6 @@ if __name__ == '__main__':
     entangle_distribution_protocols_4, entangle_swapping_protocols_4 = define_protocol(pses_layer_final_solution_4,real_path_4)
     entangle_distribution_protocols_5, entangle_swapping_protocols_5 = define_protocol(pses_layer_final_solution_5,real_path_5)
     entangle_distribution_protocols_6, entangle_swapping_protocols_6 = define_protocol(pses_layer_final_solution_6,real_path_6)
-##############################################################################################################################
-
-########################## pses test (2~6 paths) ###########################
-#    time_start = time.perf_counter()
-#    central_controller.parallel_swapping(pses_layer_final_solution_1, entangle_distribution_protocols_1, entangle_swapping_protocols_1, network_1, False)
-#    central_controller.parallel_swapping(pses_layer_final_solution_2, entangle_distribution_protocols_2, entangle_swapping_protocols_2, network_2, False)
-#    central_controller.parallel_swapping(pses_layer_final_solution_3, entangle_distribution_protocols_3, entangle_swapping_protocols_3, network_3, False)
-#    central_controller.parallel_swapping(pses_layer_final_solution_4, entangle_distribution_protocols_4, entangle_swapping_protocols_4, network_4, False)
-#    central_controller.parallel_swapping(pses_layer_final_solution_5, entangle_distribution_protocols_5, entangle_swapping_protocols_5, network_5, False)
-#    central_controller.parallel_swapping(pses_layer_final_solution_6, entangle_distribution_protocols_6, entangle_swapping_protocols_6, network_6, False)
-#    time_stop = time.perf_counter()
-#    pses_time = time_stop-time_start
-#    print("pses time is: {}" .format(pses_time))
-########################## M-PSES test (2~6 paths)###########################
     solution_set = []
     entangle_distribution_protocols_set = []
     entangle_swapping_protocols_set = []

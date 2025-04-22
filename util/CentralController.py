@@ -89,12 +89,12 @@ class CentralController():
     def MPSES_parallel_swapping(self, solution_set,entangle_distribution_protocols_set,entangle_swapping_protocols_set,network_set,isBalanced,common_node_list):
         args_set = []
         common_node_args = []
+       # solution_set[0]= solution_set[0][]
         for i in range(0,len(solution_set[0])):
             args = []
             for k in range(0, len(solution_set)):
                 for j in range(0,len(solution_set[0][i])):
                     if k!=0 and bool(set(solution_set[0][i][j][1:-1])&set(common_node_list)):
-                        print(solution_set[0][i][j][1:-1])
                         arg = []
                         arg.append(entangle_distribution_protocols_set[k][i][j])
                         arg.append(entangle_swapping_protocols_set[k][i][j])
@@ -474,8 +474,10 @@ class CentralControllerInfoTable():
                                 target_mem.teleportation_state = None
                                 target_mem.swapping_state = None
                                 target_mem.state = "idle"
-                
-               
+         
+            
+                    
+     
 
 
 class Domain():
